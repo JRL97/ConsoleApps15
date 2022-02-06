@@ -1,4 +1,5 @@
-﻿namespace ConsoleAppProject.App01
+﻿using System;
+namespace ConsoleAppProject.App01
 {
     /// <summary>
     /// This class includes methods to convert a given distance in miles to the 
@@ -18,16 +19,21 @@
         /// </summary>
         public void Run()
         {
-
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();
         }
 
         /// <summary>
         /// Prompt the user to enter miles
         /// Input the miles as a double number
         /// </summary>
+        
         private void InputMiles()
         {
-
+            Console.Write("Please Enter the Number of Miles > ");
+            string value = Console.ReadLine();
+            miles = Convert.ToDouble(value);
         }
 
         /// <summary>
