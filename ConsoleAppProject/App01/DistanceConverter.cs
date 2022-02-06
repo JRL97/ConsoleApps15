@@ -10,6 +10,7 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
+        public const int FEET_IN_MILES = 5280;
         private double miles;
 
         private double feet; 
@@ -19,6 +20,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void Run()
         {
+            OutputHeading();
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -29,6 +31,17 @@ namespace ConsoleAppProject.App01
         /// Input the miles as a double number
         /// </summary>
         
+
+        private void OutputHeading()
+        {
+            Console.WriteLine();
+            Console.WriteLine("    ---------------------------");
+            Console.WriteLine("       Convert Miles to Feet   ");
+            Console.WriteLine("         By Jessica Leach      ");
+            Console.WriteLine("    ---------------------------");
+            Console.WriteLine();
+        }
+
         private void InputMiles()
         {
             Console.Write("Please Enter the Number of Miles > ");
@@ -41,7 +54,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateFeet()
         {
-
+            feet = miles * FEET_IN_MILES; 
         }
 
         /// <summary>
@@ -49,7 +62,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet! ");
         }
     
     }
