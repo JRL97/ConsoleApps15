@@ -1,4 +1,5 @@
-﻿using ConsoleAppProject.App03;
+﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -24,6 +25,9 @@ namespace ConsoleAppProject
             Console.WriteLine("        by Derek Peacock and Nicholas Day         ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
+
+            DistanceConverter converter = new DistanceConverter();
+            converter.Run();
         }
     }
 }
