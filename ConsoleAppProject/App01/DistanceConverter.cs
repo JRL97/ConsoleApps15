@@ -11,6 +11,7 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
+
         private double miles;
 
         private double feet; 
