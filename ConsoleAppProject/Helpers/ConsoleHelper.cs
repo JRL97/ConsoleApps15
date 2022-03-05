@@ -153,8 +153,7 @@ namespace ConsoleAppProject.Helpers
         }
 
             /// <summary>
-            /// This method will give the user the option to carry
-            /// out another calculation by saying yes or no
+            /// A method to let a user repeat a calculation wihtout closing the app
             /// </summary>
             ///
             public static bool Repeat()

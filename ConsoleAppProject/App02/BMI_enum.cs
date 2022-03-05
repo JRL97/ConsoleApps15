@@ -10,9 +10,9 @@ namespace ConsoleAppProject.App02
     public enum BMI_Enum
     {
         None,
-        Underwieght,
+        Underweight,
         Normalweight,
-        Overwieght,
+        Overweight,
         Obese1,
         Obese2,
         Obese3,

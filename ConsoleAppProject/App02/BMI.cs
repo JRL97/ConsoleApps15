@@ -3,10 +3,10 @@ using System;
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This application calculates BMI through the input of either metric or imperial units by a user and outputs the associated BMI status. 
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Jessica Leach version 
     /// </author>
     public class BMI
     {
@@ -46,10 +46,9 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// This method offers the user the unit choices
-        /// imeperial or metric. Whichever is chosen,
-        /// it will calculate the result from the user
-        /// input and output the BMI Index result.
+        ///This method allows a user to choose between an imperial or metric conversion, 
+        ///then calculates the results from the users input and outputs 
+        ///the BMI and the BMI class the results belong to
         /// </summary>
         public void ConvertBMI()
         {
@@ -83,10 +82,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// Prompts user to enter height in feet and inches
-        /// and their weight in stones and pounds. Converts
-        /// feet to inches and stones to pounds to calculate
-        /// single unit results for both height and weight
+        //This method allows a user to input weight in stones and pounds and
+        //height in feet and inches in order to calculate an associated BMI. 
         /// </summary>
         private void InputImperial()
         {
@@ -106,8 +103,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// Prompts user to enter height in metres and weight
-        /// in kilograms
+        ///This method allows a user to input weight in kilograms and
+        ///height in metres in order to calculate an associated BMI. 
         /// </summary>
         private void InputMetric()
         {
@@ -123,8 +120,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// Calculates BMI using following sum for imperial units
-        /// BMI = (weight in pounds) x 703 / (height in inches)2
+        /// Calculates BMI using following
+        /// BMI = (weight in pounds) x 703 / (height in inches)2 for imperial units
         /// </summary>
         public void CalculateImperial()
         {
@@ -132,8 +129,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// Calculates BMI using following sum for metric units
-        /// BMI = (weight in kg) / (height in metres)2
+        /// Calculates BMI using following 
+        /// BMI = (weight in kg) / (height in metres)2 for metric units
         /// </summary>
         public void CalculateMetric()
         {
@@ -141,15 +138,13 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// This method uses more and less thans to classify the BMI
-        /// status through the BMI Index and the BMI_Status Enumeration
-        /// class
+        /// This method sorts calculated results into their associated bands in order to output a class for a user
         /// </summary>
         private void OutputBMI_Index()
         {
             if (BMI_Index < 18.50)
             {
-                Status = BMI_Enum.Underwieght;
+                Status = BMI_Enum.Underweight;
             }
             else if (BMI_Index > 18.5 && BMI_Index < 24.9)
             {
@@ -157,7 +152,7 @@ namespace ConsoleAppProject.App02
             }
             else if (BMI_Index > 25.0 && BMI_Index < 29.9)
             {
-                Status = BMI_Enum.Overwieght;
+                Status = BMI_Enum.Overweight;
             }
             else if (BMI_Index > 30.00 && BMI_Index < 34.9)
             {
