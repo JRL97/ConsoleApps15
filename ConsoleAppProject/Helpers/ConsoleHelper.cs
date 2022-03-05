@@ -30,7 +30,7 @@ namespace ConsoleAppProject.Helpers
 
             // Get the user's choice
 
-            int choiceNo = (int)InputNumber("\n Please enter your choice > ", 
+            int choiceNo = (int)InputNumber("\n Please enter your choice > ",
                                             1, choices.Length);
             return choiceNo;
         }
@@ -143,7 +143,7 @@ namespace ConsoleAppProject.Helpers
             Console.WriteLine($"\n {title}");
             Console.Write(" ");
 
-            for(int count = 0; count <= title.Length; count++)
+            for (int count = 0; count <= title.Length; count++)
             {
                 Console.Write("-");
             }
@@ -151,5 +151,42 @@ namespace ConsoleAppProject.Helpers
             Console.WriteLine("\n");
             Console.ResetColor();
         }
+
+            /// <summary>
+            /// This method will give the user the option to carry
+            /// out another calculation by saying yes or no
+            /// </summary>
+            ///
+            public static bool Repeat()
+            {
+                bool repeat = true;
+                while (repeat)
+                {
+                    Console.WriteLine("\n Would you like to carry out"
+                        + " another calculation? yes/no? > ");
+                    string choice = Console.ReadLine();
+
+                    if (choice.ToLower().Contains("y"))
+                    {
+                        Console.WriteLine(" You have selected yes");
+                        repeat = false;
+                        return true;
+                    }
+
+                    else if (choice.ToLower().Contains("n"))
+                    {
+                        Console.WriteLine(" You have selected no");
+                        repeat = false;
+                        return false;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine(" Error: invalid input. Please try again");
+                    }
+                }
+                return false;
+            }
     }
 }
+

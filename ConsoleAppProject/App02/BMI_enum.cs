@@ -1,0 +1,21 @@
+﻿using System;
+namespace ConsoleAppProject.App02
+{
+    /// <summary>
+    /// A listing of the WHO weight classifications.
+    /// </summary>
+    /// <author>
+    /// Jessica Leach version 
+    /// </author>
+    public enum BMI_Enum
+    {
+        None,
+        Underwieght,
+        Normalweight,
+        Overwieght,
+        Obese1,
+        Obese2,
+        Obese3,
+    }
+   
+}
