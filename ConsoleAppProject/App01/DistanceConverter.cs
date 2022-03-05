@@ -27,7 +27,6 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
            ConsoleHelper.OutputHeading("App01 Distance Converter", "Jessica Leach");
-            //SelectUnit();
             fromUnit = SelectUnit(" Please select your from unit");
             toUnit = SelectUnit(" Please select your to unit");
             Console.WriteLine($" \n You are converting from {fromUnit} to {toUnit} \n");
@@ -105,11 +104,5 @@ namespace ConsoleAppProject.App01
                 toDistance = fromDistance / FEET_IN_METRES;
             }
         }
-            /// <summary>
-            /// Output the convereted number 
-            /// </summary>
-            /// 
-
-
     }
 }
