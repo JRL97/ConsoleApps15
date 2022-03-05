@@ -52,7 +52,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void ConvertBMI()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine(" Selecting units");
 
