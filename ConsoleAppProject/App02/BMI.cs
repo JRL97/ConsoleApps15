@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App02
     /// This application calculates BMI through the input of either metric or imperial units by a user and outputs the associated BMI status. 
     /// </summary>
     /// <author>
-    /// Jessica Leach version 
+    /// Jessica Leach version 1.4
     /// </author>
     public class BMI
     {
@@ -78,7 +78,7 @@ namespace ConsoleAppProject.App02
                 CalculateMetric();
             }
 
-            OutputBMI_Index();
+            OutputWeightStatus();
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace ConsoleAppProject.App02
         /// <summary>
         /// This method sorts calculated results into their associated bands in order to output a class for a user
         /// </summary>
-        private void OutputBMI_Index()
+        private void OutputWeightStatus()
         {
             if (BMI_Index < 18.50)
             {
@@ -169,9 +169,16 @@ namespace ConsoleAppProject.App02
 
             Console.WriteLine($"\n Your BMI index is {BMI_Index: 0.00}");
             Console.WriteLine($"Your BMI status is {Status}");
-
+            Console.WriteLine("-----------------------------------------");
             Console.WriteLine("\n 23.0 or more are at increased risk " +
                 "\n 27.5 or more are at high risk");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("\n BAME MESSAGE " +
+                "\n If you are Black, Asian or are a member of another minority group you are at higher risk.");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("\n OTHER FACTORS " +
+                "\n Children, pregnant women, and muscle builders may find their BMI results over or underestimate their risk.");
+            Console.WriteLine("-----------------------------------------");
         }
 
 
