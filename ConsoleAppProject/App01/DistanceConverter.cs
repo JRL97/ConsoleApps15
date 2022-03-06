@@ -3,8 +3,8 @@ using System;
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// This class includes methods to convert a given distance in miles to the 
-    /// equivalent distance in feet
+    /// This App will allow a user to convert a distance from one unit to another then output the 
+    /// final distance. 
     /// </summary>
     /// <author>
     /// Jessica Leach version 0.1
@@ -22,11 +22,15 @@ namespace ConsoleAppProject.App01
         private DistanceUnits toUnit;
 
         /// <summary>
-        /// A method that allows the program class to call to the distance converter.
+        /// A method that allows the program class to call to the distance converter. It displays a heading and asks the user 
+        /// what units they would like to convert from and calls to the convertdistance and outputdistance methods. 
         /// </summary>
         public void Run()
         {
-           ConsoleHelper.OutputHeading("App01 Distance Converter", "Jessica Leach");
+            bool repeat = true;
+            while (repeat)
+            {
+                ConsoleHelper.OutputHeading("App01 Distance Converter", "Jessica Leach");
             fromUnit = SelectUnit(" Please select your from unit");
             toUnit = SelectUnit(" Please select your to unit");
             Console.WriteLine($" \n You are converting from {fromUnit} to {toUnit} \n");
@@ -34,7 +38,15 @@ namespace ConsoleAppProject.App01
             fromDistance = ConsoleHelper.InputNumber($"Please enter the distance in {fromUnit} > !");
             ConvertDistance(); 
             OutputDistance();
+            repeat = ConsoleHelper.Repeat();
+            }
         }
+
+        /// <summary>
+        /// Displays the choices a user has to convert between and returns info based on a users selections. 
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
 
         private DistanceUnits SelectUnit(string prompt)
         {
@@ -64,12 +76,18 @@ namespace ConsoleAppProject.App01
             else return DistanceUnits.NoUnit;
         }
 
+        /// <summary>
+        /// Outputs the final calculated distance
+        /// </summary>
 
         private void OutputDistance()
         {
             Console.WriteLine($" {fromDistance} {fromUnit} = {toDistance} {toUnit}!");
         }
 
+        /// <summary>
+        /// Converts the inputted distances into selected units
+        /// </summary>
 
         private void ConvertDistance()
         {

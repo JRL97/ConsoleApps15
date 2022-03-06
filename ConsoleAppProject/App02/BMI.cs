@@ -3,7 +3,7 @@ using System;
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// This application calculates BMI through the input of either metric or imperial units by a user and outputs the associated BMI status. 
+    /// This application calculates BMI through the input of either metric or imperial units by a user and outputs the associated BMI Class. 
     /// </summary>
     /// <author>
     /// Jessica Leach version 1.4
@@ -30,9 +30,8 @@ namespace ConsoleAppProject.App02
         private string unitChoice;
 
         /// <summary>
-        /// This method will run the program, outputting a
-        /// heading, closing the program if the user does
-        /// not wish to run it again
+        /// A method to run the programme. It outputs a heading, converts BMI and then asks the user if they wish to 
+        /// create a second calculation. 
         /// </summary>
         public void Run()
         {
