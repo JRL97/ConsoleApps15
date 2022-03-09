@@ -30,7 +30,8 @@ namespace ConsoleAppProject
             string[] choices = new string[]
   {
                 "Distance Converter",
-                "BMI Calculator"
+                "BMI Calculator",
+                "Student Marks"
   };
 
             ConsoleHelper.OutputTitle(" Please select the App you would like to use >   ");
@@ -46,6 +47,11 @@ namespace ConsoleAppProject
             {
                 BMI app02 = new BMI();
                 app02.Run();
+            }
+              else if (choice == 3)
+            {
+                StudentGrades app03 = new StudentGrades();
+                app03.Run();
             }
         }
     }

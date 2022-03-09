@@ -31,14 +31,14 @@ namespace ConsoleAppProject.App01
             while (repeat)
             {
                 ConsoleHelper.OutputHeading("App01 Distance Converter", "Jessica Leach");
-            fromUnit = SelectUnit(" Please select your from unit");
-            toUnit = SelectUnit(" Please select your to unit");
-            Console.WriteLine($" \n You are converting from {fromUnit} to {toUnit} \n");
+                fromUnit = SelectUnit(" Please select your from unit");
+                toUnit = SelectUnit(" Please select your to unit");
+                Console.WriteLine($" \n You are converting from {fromUnit} to {toUnit} \n");
             
-            fromDistance = ConsoleHelper.InputNumber($"Please enter the distance in {fromUnit} > !");
-            ConvertDistance(); 
-            OutputDistance();
-            repeat = ConsoleHelper.Repeat();
+                fromDistance = ConsoleHelper.InputNumber($"Please enter the distance in {fromUnit} > !");
+                ConvertDistance(); 
+                OutputDistance();
+                repeat = ConsoleHelper.Repeat();
             }
         }
 
@@ -51,11 +51,11 @@ namespace ConsoleAppProject.App01
         private DistanceUnits SelectUnit(string prompt)
         {
             string[] choices =
-                {
-                    $" 1. {DistanceUnits.Miles}",
-                    $" 2. {DistanceUnits.Feet}",
-                    $" 3. {DistanceUnits.Metres}"
-                };
+            {
+                 $" 1. {DistanceUnits.Miles}",
+                 $" 2. {DistanceUnits.Feet}",
+                 $" 3. {DistanceUnits.Metres}"
+            };
 
             Console.WriteLine($"n/{prompt}/n");
             int choice = ConsoleHelper.SelectChoice(choices);
