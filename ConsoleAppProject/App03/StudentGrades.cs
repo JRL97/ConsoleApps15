@@ -7,9 +7,13 @@ using System.Linq;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// At the moment this class just tests the
-    /// Grades enumeration names and descriptions
+    /// This App will allow a user to input grades for 10 students and have then converted to a letter 
+    /// grade. Then it will calculate statistics for the inputted grades as well as a percentage for each 
+    /// grade level.
     /// </summary>
+    /// <author>
+    /// Jessica Leach version 4
+    /// </author>
     public class StudentGrades
     {
 
@@ -33,7 +37,9 @@ namespace ConsoleAppProject.App03
 
 
 
-
+        /// <summary>
+        /// A method to run the programme. It includes 10 students. 
+        /// </summary>
         public void Run()
         {
          bool repeat = true;
@@ -49,15 +55,16 @@ namespace ConsoleAppProject.App03
                 repeat = ConsoleHelper.Repeat();
             }
         }
-
         public void CalculateGrades()
         {
             InputMarks();
-            //ConvertGrades();
             OutputMarks();
-            OutputStatisitcs();
+            OutputStatistics();
         }
 
+        /// <summary>
+        /// Provides the user with a prompt to enter grades for each student in the array
+        /// </summary>
         private void InputMarks()
         {
             Console.WriteLine("Please enter a mark for each student >\n");
@@ -72,11 +79,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
-       // private void ConvertGrades()
-       
-       // {
-
-        //}
+        /// <summary>
+        /// Outputs a student and mark list along with their converted grade.  
+        /// </summary>
 
         private void OutputMarks()
         {
@@ -91,28 +96,36 @@ namespace ConsoleAppProject.App03
             }
         }
 
-
+        /// <summary>
+        /// Converts the inputted marks to grades.
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
         public Grades ConvertToGrades(int mark)
         {
             if (mark >= 0 && mark <= MIN_D - 1)
                 return Grades.F;
 
-            if (mark >= 40 && mark <= MIN_C - 2)
+            if (mark >= 40 && mark <= MIN_C - 1)
                 return Grades.D;
 
-            if (mark >= 50 && mark <= MIN_B - 3)
+            if (mark >= 50 && mark <= MIN_B - 1)
                 return Grades.C;
 
-            if (mark >= 60 && mark <= MIN_A - 4)
+            if (mark >= 60 && mark <= MIN_A - 1)
                 return Grades.B;
 
-            if (mark >= 70 && mark <= MAX_PASS - 5)
+            if (mark >= 70 && mark <= MAX_PASS)
                 return Grades.A;
 
             else return Grades.X;
         }
 
-     
+     /// <summary>
+     /// Calculates the percentage total of students in each grade group
+     /// </summary>
+     /// <param name="mark"></param>
+     /// <returns></returns>
         public Grades CalculateGradeProfile(int mark)
         { 
             Grades grade = ConvertToGrades(mark);
@@ -121,7 +134,10 @@ namespace ConsoleAppProject.App03
         }
 
 
-        public void OutputStatisitcs()
+        /// <summary>
+        /// Calculates and Outputs the minimum, maximum and mean mark. 
+        /// </summary>
+        public void OutputStatistics()
         {
             Mean = (double)Marks.Sum() / (double)Marks.Length;
             MinMark = Marks.Min();
@@ -131,8 +147,6 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"Mean Mark: {Mean} \nMinimum Mark: {MinMark} \nMaximum Mark: {MaxMark}");
             ConsoleHelper.OutputTitle("Overall Grades:");
           
-
-            //Runs a for loop to get the grade descriptor and percentage of people with that grade
             for (int i = 0; i < GradeProfile.Length; i++)
             {
                 Console.WriteLine($"Grade {Enum.GetName(typeof(Grades), i + 1)}-- {GradeProfile[i]}%");
