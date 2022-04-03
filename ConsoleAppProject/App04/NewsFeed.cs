@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject.Helpers;
+using System;
 using System.Collections.Generic;
 
 
@@ -16,63 +17,189 @@ namespace ConsoleAppProject.App04
     ///</summary>
     ///<author>
     ///  Michael Kölling and David J. Barnes
+    ///  Modified by Jessica Leach 3/4/22
     ///  version 0.1
     ///</author> 
     public class NewsFeed
     {
-        private readonly List<MessagePost> messages;
-        private readonly List<PhotoPost> photos;
+        public const string AUTHOR = "Jessica Leach";
+
+        private readonly List<Post> posts;
 
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
         {
-            messages = new List<MessagePost>();
-            photos = new List<PhotoPost>();
+            posts = new List<Post>();
+
+            MessagePost post = new MessagePost(AUTHOR, "Does anyone have a good recipe for lemon bars?");
+            AddMessagePost(post);
+            post.AddComment("sure, www.lemonbars.com");
+
+            PhotoPost photoPost = new PhotoPost(AUTHOR, "Lemonbar.jpg", "Lemon Bar Photo");
+            AddPhotoPost(photoPost);
         }
 
+        public Post Post
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         ///<summary>
-        /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
+        /// Add a Photo post to the news feed.
+        /// @param text  The Photo post to be added.
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
-            messages.Add(message);
+            posts.Add(message);
         }
 
         ///<summary>
-        /// Add a photo post to the news feed.
-        /// 
-        /// @param photo  The photo post to be added.
-        ///</summary>
+        /// Add a Photo to this post.
+        /// The new photo to add.
+        /// </summary>
         public void AddPhotoPost(PhotoPost photo)
         {
-            photos.Add(photo);
+            posts.Add(photo);
         }
 
+        /// <summary>
+        /// Display the author with output the post
+        /// </summary>
+        public void DisplayAuthorPost(string author)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    post.Display();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Display the Date with output the post
+        /// </summary>
+        public void FindDate(string date)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Timestamp.ToLongDateString().Contains(date))
+                {
+                    post.Display();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add comment to the post
+        /// </summary>
+        public void AddPostComment(int id, string text)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nThe comment have been added to post {id}!\n");
+                post.AddComment(text);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// Add like to the post
+        /// </summary>
+        public void LikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have liked the the post {id}!\n");
+                post.Like();
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// Add Unlike to the post
+        /// </summary>
+        public void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have unliked the the post {id}!\n");
+                post.Unlike();
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// Removeing all the new post by id
+        /// </summary>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
+
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// Find the post
+        /// </summary>
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
         ///<summary>
-        /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
+        /// Display the news feed
         ///</summary>
         public void Display()
         {
-            // display all text posts
-            foreach (MessagePost message in messages)
-            {
-                message.Display();
-                Console.WriteLine();   // empty line between posts
-            }
+            ConsoleHelper.OutputTitle("Display All Posts");
 
-            // display all photos
-            foreach (PhotoPost photo in photos)
+            // display all text posts
+            foreach (Post post in posts)
             {
-                photo.Display();
+                post.Display();
                 Console.WriteLine();   // empty line between posts
             }
         }
     }
-
 }
